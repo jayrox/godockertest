@@ -8,11 +8,11 @@ import (
 
 func main() {
 	var err = filepath.Walk("./", func(file string, _ os.FileInfo, _ error) error {
-		fmt.Println("__________")
 		basename := filepath.Base(file)
-		fmt.Println(basename)
+		fmt.Println("Basename: ", basename)
 		fp := filepath.Dir(file)
-		fmt.Println(fp)
+		fmt.Println("Dir: ", fp)
+		fmt.Println("__________")
 
 		return nil
 	})
