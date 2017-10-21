@@ -2,17 +2,16 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"log"
+	"os"
+	"path/filepath"
 )
 
 func main() {
-	files, err := ioutil.ReadDir("./")
+	var err = filepath.Walk("./", func(file string, _ os.FileInfo, _ error) error {
+		fmt.Println(file)
+		return nil
+	})
 	if err != nil {
-		log.Fatal(err)
-	}
-
-	for _, f := range files {
-		fmt.Println(f.Name())
+		fmt.Println("Error: %+v\n", err)
 	}
 }
