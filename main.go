@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	var err = filepath.Walk("./", func(file string, _ os.FileInfo, _ error) error {
+	var err = filepath.Walk("./mnt", func(file string, _ os.FileInfo, _ error) error {
 		basename := filepath.Base(file)
 		fmt.Println("Basename: ", basename)
 		fp := filepath.Dir(file)
